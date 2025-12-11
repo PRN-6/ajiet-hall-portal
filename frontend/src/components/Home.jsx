@@ -1,12 +1,12 @@
 import React from 'react'
 import NavBar from './NavBar'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   return (
     <div>
         <NavBar/>
-        <div className='flex items-center pl-10 full-screen h-100  '>
+        <div className='flex items-center pl-10  h-100  '>
             <h1 className='flex flex-col text-6xl font-black'>
               <span>AJIET</span> 
               <span className='text-gray-700'>Hall Booking Portal</span>

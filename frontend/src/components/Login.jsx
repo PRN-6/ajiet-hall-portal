@@ -9,7 +9,7 @@ const Login = () => {
     } =  useForm()
 
   const onSubmit = (data) => {
-    console.log("Login Date",data)
+    console.log("Login Data",data)
     //need to add the feature to send the data to my backend using axios
   }
 

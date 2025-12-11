@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 import connectDB from './config/database.js';
 import auth from './routes/auth.js'
 import book from './routes/book.js'
+import cors from 'cors'
 
 //lets us use env in all our servers
 dotenv.config({
@@ -11,6 +12,11 @@ dotenv.config({
 
 //use the express
 const app = express();
+
+app.use(cors({
+    origin: ["http://localhost:5173/"],
+    credentials: true
+}))
 
 //middleware
 app.use(express.json())
