@@ -39,7 +39,12 @@ const Book = () => {
           />
         </div>
       </div>
-      <div className='w-1/2'>
+      <div className='w-1/2 bg-amber-300 items-center justify-center p-14'>
+          <div className='text-center '>
+            <h2 className='text-2xl font-bold'>Bookings</h2>
+          </div>
+      </div>
+      {/* <div className='w-1/2'>
       <form onSubmit={handleSubmit(onSubmit)}>
           <div className='m-12 border-4 rounded-4xl h-160 p-10 bg-white shadow-lg' >
             <h3 className="text-2xl font-bold ">
@@ -135,7 +140,7 @@ const Book = () => {
             </div>
           </div> 
       </form>
-      </div>
+      </div> */}
     </div>
   );
 };
