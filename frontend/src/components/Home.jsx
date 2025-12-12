@@ -1,8 +1,19 @@
 import React from 'react'
 import NavBar from './NavBar'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Home = () => {
+  const navigate = useNavigate()
+  const token = localStorage.getItem('token')
+
+  const handleBookClick = () => {
+    if(token){
+      navigate('/book')
+    }else{
+      localStorage.setItem('redirectAfterLogin', '/book')
+      navigate('/login')
+    }
+  }
   return (
     <div>
         <NavBar/>
@@ -13,12 +24,12 @@ const Home = () => {
             </h1>
         </div>
             <div className=" m-8">
-              <Link 
-                to={"/book"}
+              <button 
+                onClick={handleBookClick}
                 className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-6 px-12 rounded-4xl shadow-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1"
               >
                 Book the Hall
-              </Link> 
+              </button> 
             </div>
     </div>
   )

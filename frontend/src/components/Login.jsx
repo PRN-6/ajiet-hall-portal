@@ -1,16 +1,38 @@
 import React from 'react'
 import {useForm} from 'react-hook-form'
+import axios from 'axios'
+import { useNavigate } from 'react-router'
 
 const Login = () => {
+  const navigate = useNavigate()
+
     const {
       register,
       handleSubmit,
       formState: {errors},
     } =  useForm()
 
-  const onSubmit = (data) => {
-    console.log("Login Data",data)
+  const onSubmit = async (data) => {
     //need to add the feature to send the data to my backend using axios
+    try{
+        const res = await axios.post("/api/auth/login",
+          data,
+          {
+        withCredentials: true, // Important for sending cookies
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      }
+        )
+        console.log(res.data)
+        alert("login succesfull") 
+
+        navigate('/book')
+
+      }catch(error){
+        console.log(error)
+      }
+  
   }
 
 
