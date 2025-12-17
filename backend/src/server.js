@@ -16,7 +16,7 @@ const app = express();
 // CORS configuration
 const allowedOrigins = [
     "http://localhost:5173",
-    "https://ajiet-hall-portal.vercel.app"  // Your Vercel URL
+    "https://collage-hall-portal-g5x7.vercel.app/login"  // Your Vercel URL
 ];
 
 app.use(cors({
