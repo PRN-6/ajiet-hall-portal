@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: collage-hall-backend
+    env: node
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    envVars:
+      - key: MONGODB_URI
+        fromDatabase:
+          name: mongodb
+          property: connectionString
+      - key: PORT
+        value: 10000
+      - key: JWT_SECRET
+        generateValue: true
+      - key: NODE_ENV
+        value: production
