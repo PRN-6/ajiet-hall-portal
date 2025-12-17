@@ -19,7 +19,7 @@ const Home = () => {
         <NavBar/>
         <div className='flex items-center pl-10  h-100  '>
             <h1 className='flex flex-col text-6xl font-black'>
-              <span>AJIET</span> 
+              <span>COLLAGE</span> 
               <span className='text-gray-700'>Hall Booking Portal</span>
             </h1>
         </div>
