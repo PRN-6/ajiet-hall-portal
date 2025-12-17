@@ -24,7 +24,7 @@ app.use(express.json())
 //use the auth api in routes
 // /api/auth is common
 app.use("/api/auth",auth)
-app.use("/api/book",book)
+app.use("/api",book)
 
 //To start the server
 const startServer = async () => {
