@@ -13,25 +13,57 @@ const Login = () => {
     } =  useForm()
 
   const onSubmit = async (data) => {
-    const API_URL = import.meta.env.VITE_API_URL || 'https://collage-hall-backend-production.up.railway.app/api';
-    try{
-        const res = await axios.post(`${API_URL}/auth/login`,
-          data,
-          {
-        withCredentials: true, // Important for sending cookies
-        headers: {
-          'Content-Type': 'application/json',
+    // Using direct API URL to avoid any environment variable issues
+    const API_URL = 'https://collage-hall-backend-production.up.railway.app/api';
+    
+    try {
+      console.log('Attempting login with data:', data);
+      console.log('API URL:', `${API_URL}/auth/login`);
+      
+      const res = await axios.post(
+        `${API_URL}/auth/login`,
+        data,
+        {
+          withCredentials: true,
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          }
         }
+      );
+      
+      console.log('Login response:', res.data);
+      
+      if (res.data && res.data.success) {
+        alert("Login successful!");
+        navigate('/book');
+      } else {
+        alert(res.data?.message || 'Login failed. Please try again.');
       }
-        )
-        console.log(res.data)
-        alert("login succesfull") 
-
-        navigate('/book')
-
-      }catch(error){
-        console.log(error)
+    } catch (error) {
+      console.error('Login error:', {
+        message: error.message,
+        response: error.response?.data,
+        status: error.response?.status,
+        config: {
+          url: error.config?.url,
+          method: error.config?.method,
+          data: error.config?.data
+        }
+      });
+      
+      if (error.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        alert(error.response.data?.message || `Error: ${error.response.status}`);
+      } else if (error.request) {
+        // The request was made but no response was received
+        alert('No response from server. Please check your connection.');
+      } else {
+        // Something happened in setting up the request
+        alert('Error: ' + error.message);
       }
+    }
   
   }
 
