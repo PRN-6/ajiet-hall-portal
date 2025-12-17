@@ -13,7 +13,7 @@ const Login = () => {
     } =  useForm()
 
   const onSubmit = async (data) => {
-    const API_URL = import.meta.env.VITE_API_URL || '';
+    const API_URL = import.meta.env.VITE_API_URL || 'https://collage-hall-backend-production.up.railway.app/api';
     try{
         const res = await axios.post(`${API_URL}/auth/login`,
           data,
