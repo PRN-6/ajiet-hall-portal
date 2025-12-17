@@ -1,0 +1,9 @@
+{
+  "name": "ajiet-hall-portal",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "cd backend && npm install",
+    "start": "cd backend && npm start"
+  }
+}
