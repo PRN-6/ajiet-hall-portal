@@ -20,7 +20,7 @@ const Home = () => {
         <div className='flex items-center pl-10  h-100  '>
             <h1 className='flex flex-col text-6xl font-black'>
               <span>COLLAGE</span> 
-              <span className='text-gray-700'>Hall Booking Portal</span>
+              <span className='text-gray-700 text-5xl'>Hall Booking Portal</span>
             </h1>
         </div>
             <div className=" m-8">
