@@ -13,9 +13,9 @@ const Login = () => {
     } =  useForm()
 
   const onSubmit = async (data) => {
-    //need to add the feature to send the data to my backend using axios
+    const API_URL = import.meta.env.VITE_API_URL || '';
     try{
-        const res = await axios.post("/api/auth/login",
+        const res = await axios.post(`${API_URL}/api/auth/login`,
           data,
           {
         withCredentials: true, // Important for sending cookies
